@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Register Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div th:replace="fragments :: navigation"/><br><br>
+<h3 class="text-center">Registration Form</h3><br><br>
+<div class="container mb-3 col-4">
+    <form action="#" th:action="@{/new-user}" th:object="${user}" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" th:field="*{username}" class="form-control" id="username">
+            <span class="validationError text-danger" th:if="${#fields.hasErrors('username')}"
+                  th:errors="*{username}">Username Error</span>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" th:field="*{password}" class="form-control" id="password">
+            <span class="validationError text-danger" th:if="${#fields.hasErrors('password')}"
+                  th:errors="*{password}">Password Error</span>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" th:field="*{email}" class="form-control" id="email">
+            <span class="validationError text-danger" th:if="${#fields.hasErrors('email')}"
+                  th:errors="*{email}">Email Error</span>
+        </div>
+        <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" th:field="*{fullName}" class="form-control" id="fullName">
+            <span class="validationError text-danger" th:if="${#fields.hasErrors('fullName')}"
+                  th:errors="*{fullName}">Full Name Error</span>
+        </div>
+        <br>
+        <center>
+            <button type="submit" class="btn btn-light text-dark border-dark">Submit</button>
+        </center>
+    </form>
+</div>
+</body>
+
+</html>
